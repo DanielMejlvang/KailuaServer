@@ -48,6 +48,7 @@
                     <th>Zip code</th>
                     <th>License No.</th>
                     <th>Driver since</th>
+                    <th></th>
                 </tr>
             </thead>
         <tbody>
@@ -62,6 +63,26 @@
                 <td th:text="${renter.zip}" />
                 <td th:text="${renter.licenseNumber}" />
                 <td th:text="${renter.driverSinceDate}" />
+                <td>
+                    <a th:href="@{'/deleteRenter/'+${renter.renterID}}">
+                        <button type="button" style="background-color: crimson; color:white">
+                            Delete this renter
+                        </button>
+
+                        <script>
+                            function myFunction() {
+                                var txt;
+                                var r = confirm("Are you sure?");
+                                if (r == true) {
+                                    txt = "You pressed OK!";
+                                } else {
+                                    txt = "Renter was not deleted"
+                                }
+                                document.getElementById("demo").innerHTML = txt;
+                            }
+                        </script>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
