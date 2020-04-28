@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Update renter</title>
+    </head>
+    <body>
+        <h1>
+            Update renter
+        </h1>
+        <form action="/updateRenter/" method="post">
+            <input type="text" name="renterID" th:value="${renter.renterID}" readonly>
+            <input type="text" name="firstname" th:value="${renter.firstname}">
+            <input type="text" name="lastname" th:value="${renter.lastname}">
+            <input type="text" name="mobile" th:value="${renter.mobile}">
+            <input type="text" name="phone" th:value="${renter.phone}">
+            <input type="text" name="email" th:value="${renter.email}">
+            <input type="text" name="street" th:value="${renter.street}">
+            <input type="text" name="zip" th:value="${renter.zip}">
+            <input type="text" name="licenseNumber" th:value="${renter.licenseNumber}">
+            <input type="text" name="driverSinceDate" th:value="${renter.driverSinceDate}">
+            <input type="submit" value="Save changes">
+        </form>
+    </body>
+</html>

@@ -24,13 +24,15 @@ public class RenterRepository {
     }
 
     public Renter findRenterByID(int ID){
-        return null;
+        String sql = "SELECT * FROM renters WHERE renterID = ?";
+        RowMapper<Renter> rm = new BeanPropertyRowMapper<>(Renter.class);
+        return template.queryForObject(sql, rm, ID);
     }
 
     public Renter addRenter(Renter newRenter){
-        String sql = "INSERT INTO renters (renterID, firstname, lastname, mobile, phone, email, street, zip, licenseNumber, driverSinceDate) VALUES " +
-                "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, newRenter.getRenterID(), newRenter.getFirstname(), newRenter.getLastname(), newRenter.getMobile(), newRenter.getPhone(), newRenter.getEmail(),
+        String sql = "INSERT INTO renters (firstname, lastname, mobile, phone, email, street, zip, licenseNumber, driverSinceDate) VALUES " +
+                "(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, newRenter.getFirstname(), newRenter.getLastname(), newRenter.getMobile(), newRenter.getPhone(), newRenter.getEmail(),
                         newRenter.getStreet(), newRenter.getZip(), newRenter.getLicenseNumber(), newRenter.getDriverSinceDate());
         return null;
     }
@@ -40,7 +42,11 @@ public class RenterRepository {
         return template.update(sql, ID) < 0;
     }
 
-    public Renter updateRenter(int ID, Renter renter){
+    public Renter updateRenter(int ID, Renter newRenter){
+        String sql = "UPDATE renters SET firstname = ?, lastname = ?, mobile = ?, phone = ?, email = ?, street = ?, zip = ?, " +
+                "licenseNumber = ?, driverSinceDate = ? WHERE renterID = ?";
+        template.update(sql, newRenter.getFirstname(), newRenter.getLastname(), newRenter.getMobile(), newRenter.getPhone(), newRenter.getEmail(),
+                newRenter.getStreet(), newRenter.getZip(), newRenter.getLicenseNumber(), newRenter.getDriverSinceDate(), newRenter.getRenterID());
         return null;
     }
 

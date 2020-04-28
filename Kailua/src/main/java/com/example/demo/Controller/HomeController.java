@@ -59,6 +59,12 @@ public class HomeController {
     @GetMapping("/updateRenter/{renterID}")
     public String updateRenter(@PathVariable("renterID") int ID, Model model){
         model.addAttribute("renter", rs.findRenterByID(ID));
-        return "home/update";
+        return "home/updateRenter";
+    }
+
+    @PostMapping("/updateRenter")
+    public String updateRenter(@ModelAttribute Renter renter){
+        rs.updateRenter(renter.getRenterID(), renter);
+        return "redirect:/";
     }
 }
