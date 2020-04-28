@@ -28,6 +28,10 @@ public class RenterRepository {
     }
 
     public Renter addRenter(Renter newRenter){
+        String sql = "INSERT INTO renters (renterID, firstname, lastname, mobile, phone, email, street, zip, licenseNumber, driverSinceDate) VALUES " +
+                "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        template.update(sql, newRenter.getRenterID(), newRenter.getFirstname(), newRenter.getLastname(), newRenter.getMobile(), newRenter.getPhone(), newRenter.getEmail() +
+                newRenter.getStreet(), newRenter.getZip(), newRenter.getLicenseNumber(), newRenter.getDriverSinceDate());
         return null;
     }
 
