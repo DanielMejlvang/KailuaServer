@@ -65,22 +65,9 @@
                 <td th:text="${renter.driverSinceDate}" />
                 <td>
                     <a th:href="@{'/deleteRenter/'+${renter.renterID}}">
-                        <button type="button" style="background-color: crimson; color:white">
+                        <button type="button" onclick="return confirm('Are you sure?')" style="background-color: crimson; color:white">
                             Delete this renter
                         </button>
-
-                        <script>
-                            function myFunction() {
-                                var txt;
-                                var r = confirm("Are you sure?");
-                                if (r == true) {
-                                    txt = "You pressed OK!";
-                                } else {
-                                    txt = "Renter was not deleted"
-                                }
-                                document.getElementById("demo").innerHTML = txt;
-                            }
-                        </script>
                     </a>
                 </td>
             </tr>
