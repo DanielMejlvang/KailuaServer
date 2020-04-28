@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.Renter;
+import com.example.demo.Model.Zip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.integration.IntegrationProperties;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
