@@ -55,4 +55,10 @@ public class HomeController {
         }
 
     }
+
+    @GetMapping("/updateRenter/{renterID}")
+    public String updateRenter(@PathVariable("renterID") int ID, Model model){
+        model.addAttribute("renter", rs.findRenterByID(ID));
+        return "home/update";
+    }
 }
