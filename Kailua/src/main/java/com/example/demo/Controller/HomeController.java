@@ -40,16 +40,22 @@ public class HomeController {
 
     @GetMapping("/createRenter")
     public String createRenter(){
-        return "home/createRenter";
+        return "home/createZip";
     }
 
     @PostMapping("/createRenter")
-    public String createRenter(@ModelAttribute Renter renter, @ModelAttribute Zip zip){
+    public String createRenter(@ModelAttribute Renter renter){
+
+        rs.addRenter(renter);
+        return "/createZip";
+    }
+
+    @PostMapping("/createZip")
+    public String createZip(@ModelAttribute Zip zip){
         if(!zs.doesExist(zip)){
             zs.addZip(zip);
         }
-        rs.addRenter(renter);
-        return "redirect:/";
+        return "/createRenter";
     }
 
     @GetMapping("/deleteRenter/{renterID}")
