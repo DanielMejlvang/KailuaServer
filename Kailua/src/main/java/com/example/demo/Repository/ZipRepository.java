@@ -1,11 +1,8 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.Zip;
-import com.sun.rowset.internal.Row;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -24,6 +21,8 @@ public class ZipRepository {
     }
 
     public Zip addZip(Zip zip){
+        String sql = "INSERT INTO zips (zip, city, country) VALUES (?, ?, ?)";
+        template.update(sql, zip.getZip(), zip.getCity(), zip.getCountry());
         return null;
     }
 
