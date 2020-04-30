@@ -18,7 +18,7 @@ public class ZipRepository {
         return null;
     }
 
-    public Zip editZip(){
+    public Zip editZip(String zipID, Zip newZip){
         return null;
     }
 }
