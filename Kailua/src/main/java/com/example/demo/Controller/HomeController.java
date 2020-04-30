@@ -55,8 +55,8 @@ public class HomeController {
 
     @GetMapping("/createRenter")
     public String createRenter(Model model){
-        List<Zip> justzip = zs.getZipZip(ZipRepository.latestZip);
-        model.addAttribute("chosenZip", justzip);
+        //List<Zip> justzip = zs.getZipZip(ZipRepository.latestZip);
+        model.addAttribute("chosenZip", ZipRepository.latestZip);
         return "home/createRenter";
     }
 
