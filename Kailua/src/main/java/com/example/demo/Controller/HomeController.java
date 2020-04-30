@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.Car;
 import com.example.demo.Model.Renter;
 import com.example.demo.Model.Zip;
+import com.example.demo.Repository.ZipRepository;
 import com.example.demo.Service.CarService;
 import com.example.demo.Service.RenterService;
 import com.example.demo.Service.ZipService;
@@ -53,7 +54,9 @@ public class HomeController {
     }
 
     @GetMapping("/createRenter")
-    public String createRenter(){
+    public String createRenter(Model model){
+        List<Zip> justzip = zs.getZipZip(ZipRepository.latestZip);
+        model.addAttribute("chosenZip", justzip);
         return "home/createRenter";
     }
 

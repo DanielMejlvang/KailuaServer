@@ -5,6 +5,8 @@ import com.example.demo.Repository.ZipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ZipService {
     @Autowired
@@ -21,5 +23,7 @@ public class ZipService {
     public Zip editZip(String zipID, Zip newZip){
         return zr.editZip(zipID, newZip);
     }
-
+    public List<Zip> getZipZip(Zip zip) {
+        return zr.getZipZip(zip);
+    }
 }
