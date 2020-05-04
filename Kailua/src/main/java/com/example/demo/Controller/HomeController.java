@@ -29,13 +29,7 @@ public class HomeController {
     ZipService zs;
 
     @GetMapping("/")
-    public String index(Model model) {
-        List<Car> carList = cs.fetchAll();
-        model.addAttribute("cars", carList);
-
-        List<Renter> renterList = rs.fetchAll();
-        model.addAttribute("renters" , renterList);
-
+    public String index() {
         return "home/index";
     }
 
@@ -88,5 +82,24 @@ public class HomeController {
     public String updateRenter(@ModelAttribute Renter renter){
         rs.updateRenter(renter.getRenterID(), renter);
         return "redirect:/";
+    }
+
+    @GetMapping("/renter")
+    public String renter(Model model){
+        List<Renter> renterList = rs.fetchAll();
+        model.addAttribute("renters" , renterList);
+        return "home/renter";
+    }
+
+    @GetMapping("/car")
+    public String car(Model model){
+        List<Car> carList = cs.fetchAll();
+        model.addAttribute("cars", carList);
+        return "home/car";
+    }
+
+    @GetMapping("/contract")
+    public String contract(){
+        return "home/contract";
     }
 }

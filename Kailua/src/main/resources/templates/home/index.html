@@ -8,80 +8,21 @@
 <body>
     <h1>Front page</h1>
 
-    <h3>Car list</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>License plate</th>
-                <th>Reg. date</th>
-                <th>Odometer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="car: ${cars}">
-                <td th:text="${car.carID}" />
-                <td th:text="${car.carType}" />
-                <td th:text="${car.carBrand}" />
-                <td th:text="${car.carModel}" />
-                <td th:text="${car.licenseplate}" />
-                <td th:text="${car.registrationDate}" />
-                <td th:text="${car.odometer}" />
-            </tr>
-        </tbody>
-    </table>
-
-    <h3>Person list</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Mobile</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Street address</th>
-                    <th>Zip code</th>
-                    <th>License No.</th>
-                    <th>Driver since</th>
-                    <th></th>
-                </tr>
-            </thead>
-        <tbody>
-            <tr th:each="renter: ${renters}">
-                <td th:text="${renter.renterID}" />
-                <td th:text="${renter.firstname}" />
-                <td th:text="${renter.lastname}" />
-                <td th:text="${renter.mobile}" />
-                <td th:text="${renter.phone}" />
-                <td th:text="${renter.email}" />
-                <td th:text="${renter.street}" />
-                <td th:text="${renter.zip}" />
-                <td th:text="${renter.licenseNumber}" />
-                <td th:text="${renter.driverSinceDate}" />
-                <td>
-                    <a th:href="@{'/deleteRenter/'+${renter.renterID}}">
-                        <button type="button" onclick="return confirm('Are you sure?')" style="background-color: crimson; color:white">
-                            Delete this renter
-                        </button>
-                    </a>
-                    <br />
-                    <a th:href="@{'/updateRenter/'+${renter.renterID}}">
-                        <button type="button" style="background-color: cornflowerblue; color:white">
-                            Edit this renter
-                        </button>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="/createZip">
+    <a href="/renter">
         <button type = "button">
-            Add new renter
+            Manage renters
+        </button>
+    </a>
+
+    <a href="/car">
+        <button type = "button">
+            Manage cars
+        </button>
+    </a>
+
+    <a href="/contract">
+        <button type = "button">
+            Manage contracts
         </button>
     </a>
 </body>
