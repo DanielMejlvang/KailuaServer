@@ -20,3 +20,35 @@ button{
     width: 130px;
     text-align: center;
 }
+
+#homepage{
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background-color: burlywood;
+}
+
+#addNew{
+    margin-top: 5px;
+}
+
+#deleteButton{
+    background-color: crimson;
+    color:white;
+    margin-bottom: 1px;
+}
+
+#mainButton{
+    background-color: azure;
+    margin: 10px;
+    width: 400px;
+    height: 120px;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+#homePageButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

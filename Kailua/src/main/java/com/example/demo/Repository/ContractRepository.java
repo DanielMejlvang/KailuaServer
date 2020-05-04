@@ -25,4 +25,16 @@ public class ContractRepository {
         RowMapper<Contract> rm = new BeanPropertyRowMapper<>(Contract.class);
         return template.queryForObject(sql, rm, ID);
     }
+
+    public Contract updateContract(){
+        return null;
+    }
+
+    public Contract addNewContract(){
+        return null;
+    }
+
+    public Boolean deleteContract(){
+        return null;
+    }
 }

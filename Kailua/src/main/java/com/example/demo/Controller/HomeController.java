@@ -62,7 +62,7 @@ public class HomeController {
     @PostMapping("/createRenter")
     public String createRenter(@ModelAttribute Renter renter){
         rs.addRenter(renter);
-        return "redirect:/";
+        return "redirect:/renter";
     }
 
     @GetMapping("/deleteRenter/{renterID}")
@@ -70,9 +70,9 @@ public class HomeController {
 
         boolean deletedRenter = rs.deleteRenter(ID);
         if(deletedRenter){
-            return "redirect:/";
+            return "redirect:/renter";
         } else{
-            return "redirect:/";
+            return "redirect:/renter";
         }
 
     }
@@ -86,7 +86,7 @@ public class HomeController {
     @PostMapping("/updateRenter")
     public String updateRenter(@ModelAttribute Renter renter){
         rs.updateRenter(renter.getRenterID(), renter);
-        return "redirect:/";
+        return "redirect:/renter";
     }
 
     @GetMapping("/renter")
@@ -117,5 +117,15 @@ public class HomeController {
         model.addAttribute("cars", cs.findCarByID(carID));
         model.addAttribute("renters", rs.findRenterByID(renterID));
         return "home/viewContract";
+    }
+
+    @GetMapping("/deleteCar/{carID}")
+    public String deleteCar(@PathVariable("carID") int carID){
+        boolean deletedCar = cs.deleteCar(carID);
+        if(!deletedCar){
+            return "redirect:/car";
+        } else{
+            return "redirect:/car";
+        }
     }
 }

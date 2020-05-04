@@ -18,6 +18,7 @@
                 <th>License plate</th>
                 <th>Reg. date</th>
                 <th>Odometer</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -29,8 +30,27 @@
                 <td th:text="${car.licenseplate}" />
                 <td th:text="${car.registrationDate}" />
                 <td th:text="${car.odometer}" />
+                <td>
+                    <a th:href="@{'/deleteCar/'+${car.carID}}">
+                        <button type="button" onclick="return confirm('Are you sure?')" style="background-color: crimson; color:white">
+                            Delete this car
+                        </button>
+                    </a>
+                    <br />
+                    <a th:href="@{'/updateCar/'+${car.carID}}">
+                        <button type="button" style="background-color: cornflowerblue; color:white">
+                            Edit this car
+                        </button>
+                    </a>
+
+                </td>
             </tr>
             </tbody>
         </table>
+        <a href="/">
+            <button type = "button" id="homepage">
+                Return home
+            </button>
+        </a>
     </body>
 </html>

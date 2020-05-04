@@ -38,7 +38,7 @@
                     <td th:text="${renter.driverSinceDate}" />
                     <td>
                         <a th:href="@{'/deleteRenter/'+${renter.renterID}}">
-                            <button type="button" onclick="return confirm('Are you sure?')" style="background-color: crimson; color:white">
+                            <button type="button" id = "deleteButton" onclick = "return confirm('Are you sure?')">
                                 Delete this renter
                             </button>
                         </a>
@@ -54,8 +54,14 @@
         </table>
 
         <a href="/createZip">
-            <button type = "button">
+            <button type = "button" id = "addNew">
                 Add new renter
+            </button>
+        </a>
+        <br>
+        <a href="/">
+            <button type = "button" id="homepage">
+                Return home
             </button>
         </a>
     </body>

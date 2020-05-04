@@ -28,10 +28,13 @@ public class CarRepository {
         RowMapper<Car> rm = new BeanPropertyRowMapper<>(Car.class);
         return template.queryForObject(sql, rm, ID);
     }
-    public Boolean deleteCar(int id) {
-        return null;
+    public Boolean deleteCar(int ID) {
+        String sql = "DELETE FROM cars WHERE carID = ?";
+        return template.update(sql, ID) < 0;
     }
-    public Car updateCar(int id, Car car){
+    public Car updateCar(int ID, Car car){
+        String sql = "UPDATE cars SET carType = ?, carBrand = ?, carModel = ?, licenseplate = ?, registrationDate = ?, odometer = ? WHERE carID = ?";
+        template.update(sql, car.getCarBrand(), car.getCarModel(), car.getLicenseplate(), car.getRegistrationDate(), car.getOdometer(), car.getCarID());
         return null;
     }
 }
