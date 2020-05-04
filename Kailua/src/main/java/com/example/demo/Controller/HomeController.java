@@ -1,10 +1,12 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.Car;
+import com.example.demo.Model.Contract;
 import com.example.demo.Model.Renter;
 import com.example.demo.Model.Zip;
 import com.example.demo.Repository.ZipRepository;
 import com.example.demo.Service.CarService;
+import com.example.demo.Service.ContractService;
 import com.example.demo.Service.RenterService;
 import com.example.demo.Service.ZipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class HomeController {
 
     @Autowired
     ZipService zs;
+
+    @Autowired
+    ContractService cos;
 
     @GetMapping("/")
     public String index() {
@@ -99,7 +104,9 @@ public class HomeController {
     }
 
     @GetMapping("/contract")
-    public String contract(){
+    public String contract(Model model){
+        List<Contract> contractList = cos.fetchAll();
+        model.addAttribute("rentalcontracts", contractList);
         return "home/contract";
     }
 }
