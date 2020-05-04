@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Model.Car;
+import com.example.demo.Model.Renter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,8 +23,10 @@ public class CarRepository {
     public Car addCar(Car car) {
         return null;
     }
-    public Car findCarByID(int id) {
-        return null;
+    public Car findCarByID(int ID) {
+        String sql = "SELECT * FROM cars WHERE carID = ?";
+        RowMapper<Car> rm = new BeanPropertyRowMapper<>(Car.class);
+        return template.queryForObject(sql, rm, ID);
     }
     public Boolean deleteCar(int id) {
         return null;

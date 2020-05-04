@@ -17,6 +17,7 @@
             <th>From date</th>
             <th>To date</th>
             <th>Max KM</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -27,8 +28,17 @@
             <td th:text="${contract.fromDate}"></td>
             <td th:text="${contract.toDate}"></td>
             <td th:text="${contract.maxKM}"></td>
+            <td>
+                <a th:href="@{'/viewContract/'+${contract.contractID} + '-' + ${contract.carID} + '-' + ${contract.renterID}}">
+                    <button type="button" style="background-color: darkturquoise; color:white">
+                        View contract
+                    </button>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
+
+
 </body>
 </html>

@@ -15,4 +15,8 @@ public class ContractService {
     public List<Contract> fetchAll(){
         return cr.fetchAll();
     }
+
+    public Contract viewContractByID(int ID){
+        return cr.viewContractByID(ID);
+    }
 }

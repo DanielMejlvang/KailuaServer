@@ -19,4 +19,10 @@ public class ContractRepository {
         RowMapper<Contract> rm = new BeanPropertyRowMapper<>(Contract.class);
         return template.query(sql, rm);
     }
+
+    public Contract viewContractByID(int ID){
+        String sql = "SELECT * FROM rentalcontracts JOIN renters USING (renterID) JOIN cars USING (carID) WHERE contractID = ?";
+        RowMapper<Contract> rm = new BeanPropertyRowMapper<>(Contract.class);
+        return template.queryForObject(sql, rm, ID);
+    }
 }

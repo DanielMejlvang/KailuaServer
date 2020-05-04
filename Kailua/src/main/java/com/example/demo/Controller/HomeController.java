@@ -109,4 +109,13 @@ public class HomeController {
         model.addAttribute("rentalcontracts", contractList);
         return "home/contract";
     }
+
+    @GetMapping("/viewContract/{contractID}-{carID}-{renterID}")
+    public String viewContract(@PathVariable ("contractID") int contractID, @PathVariable ("carID") int carID,
+                               @PathVariable ("renterID") int renterID, Model model){
+        model.addAttribute("rentalcontracts", cos.viewContractByID(contractID));
+        model.addAttribute("cars", cs.findCarByID(carID));
+        model.addAttribute("renters", rs.findRenterByID(renterID));
+        return "home/viewContract";
+    }
 }

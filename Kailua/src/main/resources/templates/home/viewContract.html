@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View contract</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+</head>
+<body>
+    <h3>Contract</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Contract ID</th>
+            <th>From date</th>
+            <th>To date</th>
+            <th>Max KM</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract: ${rentalcontracts}">
+            <td th:text="${contract.contractID}"></td>
+            <td th:text="${contract.fromDate}"></td>
+            <td th:text="${contract.toDate}"></td>
+            <td th:text="${contract.maxKM}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Renter</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Mobile</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Street address</th>
+            <th>Zip code</th>
+            <th>License No.</th>
+            <th>Driver since</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="renter: ${renters}">
+            <td th:text="${renter.firstname}" />
+            <td th:text="${renter.lastname}" />
+            <td th:text="${renter.mobile}" />
+            <td th:text="${renter.phone}" />
+            <td th:text="${renter.email}" />
+            <td th:text="${renter.street}" />
+            <td th:text="${renter.zip}" />
+            <td th:text="${renter.licenseNumber}" />
+            <td th:text="${renter.driverSinceDate}" />
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Car</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>License plate</th>
+            <th>Reg. date</th>
+            <th>Odometer</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car: ${cars}">
+            <td th:text="${car.carType}" />
+            <td th:text="${car.carBrand}" />
+            <td th:text="${car.carModel}" />
+            <td th:text="${car.licenseplate}" />
+            <td th:text="${car.registrationDate}" />
+            <td th:text="${car.odometer}" />
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
