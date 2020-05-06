@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Update renter</title>
+        <link rel="stylesheet" type="text/css" href="MyCSS.css" th:href="@{/MyCSS.css}">
     </head>
     <body>
         <h1>
@@ -21,5 +22,10 @@
             <input type="text" name="driverSinceDate" th:value="${renter.driverSinceDate}">
             <input type="submit" value="Save changes">
         </form>
+        <a href="/">
+            <button type = "button" id="homepage">
+                Return home
+            </button>
+        </a>
     </body>
 </html>
