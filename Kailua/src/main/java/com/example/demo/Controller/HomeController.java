@@ -45,16 +45,12 @@ public class HomeController {
 
     @PostMapping("/createZip")
     public String createZip(@ModelAttribute Zip zip){
-
-        //if(!zs.doesExist(zip)){
-            zs.addZip(zip);
-        //}
+        zs.addZip(zip);
         return "redirect:/createRenter";
     }
 
     @GetMapping("/createRenter")
     public String createRenter(Model model){
-        //List<Zip> justzip = zs.getZipZip(ZipRepository.latestZip);
         model.addAttribute("chosenZip", ZipRepository.latestZip);
         return "home/createRenter";
     }
@@ -67,14 +63,12 @@ public class HomeController {
 
     @GetMapping("/deleteRenter/{renterID}")
     public String deleteRenter(@PathVariable("renterID") int ID){
-
         boolean deletedRenter = rs.deleteRenter(ID);
         if(deletedRenter){
             return "redirect:/renter";
         } else{
             return "redirect:/renter";
         }
-
     }
 
     @GetMapping("/updateRenter/{renterID}")

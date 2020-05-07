@@ -23,7 +23,6 @@
                         <th></th>
                     </tr>
                 </thead>
-
             <tbody>
                 <tr th:each="renter: ${renters}">
                     <td th:text="${renter.renterID}" />
@@ -54,13 +53,13 @@
         </table>
 
         <a href="/createZip">
-            <button type = "button" id = "addNew">
+            <button type="button" id="addNew">
                 Add new renter
             </button>
         </a>
         <br>
         <a href="/">
-            <button type = "button" id="homepage">
+            <button type="button" id="homepage">
                 Return home
             </button>
         </a>
